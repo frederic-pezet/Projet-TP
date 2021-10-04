@@ -47,3 +47,21 @@ $regex = [
 define('COMPOSITIONS_GROUPENAME_INVALID','nom d\'équipes incorrect.');
 
 define('COMPOSITIONS_GROUPENAME_EMPTY','nom de l\'équipes obligatoire.');
+
+$formErrors = [];
+
+define('TOURNAMENTS_CREATIONDATE_INVALID','Champs invalide.');
+
+define('TOURNAMENTS_CREATIONDATE_EMPTY','Champ obligatoire.');
+
+define('TOURNAMENTS_TOURNAMENTDATE_INVALID','Champs invalide.');
+
+define('TOURNAMENTS_TOURNAMENTDATE_EMPTY','Champs obligatoire.');
+
+define('TOURNAMENTS_STARTINSCRIPTIONDATE_INVALID','champs invalide.');
+
+define('TOURNAMENTS_STARTINSCRIPTIONDATE_EMPTY','Champs obligatoire.');
+
+define('TOURNAMENTS_ENDINSCRIPTIONDATE_INVALID','Champs invalide.');
+
+define('TOURNAMENTS_ENDINSCRIPTIONDATE_EMPTY','Champs obligatoire.');
