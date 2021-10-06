@@ -65,3 +65,20 @@ define('TOURNAMENTS_STARTINSCRIPTIONDATE_EMPTY','Champs obligatoire.');
 define('TOURNAMENTS_ENDINSCRIPTIONDATE_INVALID','Champs invalide.');
 
 define('TOURNAMENTS_ENDINSCRIPTIONDATE_EMPTY','Champs obligatoire.');
+
+$formErrors = [];
+$regex = [
+
+'name'=> '/^[a-zA-Z0-9]{2,50}$/',
+'logo'=> '/^[a-zA-Z0-9]{2,50}$/',
+'jersey'=> '/^[a-zA-Z0-9]{2,50}$/',
+
+];
+
+define('TEAMS_NAME_INVALID','Champs invalide.');
+
+define('TEAMS_NAME_EMPTY','Champs obligatoire.');
+
+define('TEAMS_LOGO_EMPTY','Champs obligatoire.');
+
+define('TEAMS_JERSEY_EMPTY','Champs obligatoire.');
