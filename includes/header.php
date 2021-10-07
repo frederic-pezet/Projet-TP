@@ -26,16 +26,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="usersList.php">Profil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="tournament.php">Tournoi</a>
-                </li>
+                <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tournoi
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="tournament.php">Création du tournoi</a></li>
+            </ul>
+        </li>
                 <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Equipes
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="teamComposition.php">Composition de l'équipe</a></li>
-            <li><a class="dropdown-item" href="team.php">Another action</a></li>
+            <li><a class="dropdown-item" href="team.php">Mon équipe</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>

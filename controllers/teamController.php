@@ -33,6 +33,7 @@ if (count($_POST) > 0) {
         } else {
             $formErrors['jersey'] = TEAMS_JERSEY_EMPTY;
         }
+       
     } 
 
 

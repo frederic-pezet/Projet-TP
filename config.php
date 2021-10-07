@@ -49,6 +49,12 @@ define('COMPOSITIONS_GROUPENAME_INVALID','nom d\'équipes incorrect.');
 define('COMPOSITIONS_GROUPENAME_EMPTY','nom de l\'équipes obligatoire.');
 
 $formErrors = [];
+$regexTournament = [
+    'creationdate' => '/^[0-9]{4}(-){1}((0[1-9])|(1[0-2])){1}(-){1}((0[1-9])|((1|2)[0-9])|(3[0-1]))$/',
+    'tournamentdate' => '/^[0-9]{4}(-){1}((0[1-9])|(1[0-2])){1}(-){1}((0[1-9])|((1|2)[0-9])|(3[0-1]))$/',
+    'startinscriptiondate' => '/^[0-9]{4}(-){1}((0[1-9])|(1[0-2])){1}(-){1}((0[1-9])|((1|2)[0-9])|(3[0-1]))$/',
+    'endinscriptiondate' => '/^[0-9]{4}(-){1}((0[1-9])|(1[0-2])){1}(-){1}((0[1-9])|((1|2)[0-9])|(3[0-1]))$/',
+];
 
 define('TOURNAMENTS_CREATIONDATE_INVALID','Champs invalide.');
 
@@ -65,6 +71,8 @@ define('TOURNAMENTS_STARTINSCRIPTIONDATE_EMPTY','Champs obligatoire.');
 define('TOURNAMENTS_ENDINSCRIPTIONDATE_INVALID','Champs invalide.');
 
 define('TOURNAMENTS_ENDINSCRIPTIONDATE_EMPTY','Champs obligatoire.');
+
+
 
 $formErrors = [];
 $regex = [

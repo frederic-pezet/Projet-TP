@@ -12,7 +12,7 @@ if (count($_POST) > 0) {
 
 
     if (!empty($_POST['creationdate'])) {
-        if (preg_match('creationdate', $_POST['creationdate'])) {
+        if (preg_match($regexTournament['creationdate'], $_POST['creationdate'])) {
             $tournament->creationDate = ($_POST['creationdate']);
         } else {
             $formErrors['creationdate'] = TOURNAMENTS_CREATIONDATE_INVALID;
@@ -22,7 +22,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['tournamentdate'])) {
-        if (preg_match('tournamentdate', $_POST['tournamentdate'])) {
+        if (preg_match($regexTournament['tournamentdate'], $_POST['tournamentdate'])) {
             $tournament->tournamentDate = ($_POST['tournamentdate']);
         } else {
             $formErrors['tournamentdate'] = TOURNAMENTS_TOURNAMENTDATE_INVALID;
@@ -32,7 +32,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['startinscriptiondate'])) {
-        if (preg_match('startinscriptiondate', $_POST['startinscriptiondate'])) {
+        if (preg_match($regexTournament['startinscriptiondate'], $_POST['startinscriptiondate'])) {
             $tournament->startInscriptionDate = ($_POST['startinscriptiondate']);
         } else {
             $formErrors['startinscriptiondate'] = TOURNAMENTS_STARTINSCRIPTIONDATE_INVALID;
@@ -44,7 +44,7 @@ if (count($_POST) > 0) {
 
 
     if (!empty($_POST['endinscriptiondate'])) {
-        if (preg_match('endinscriptiondate', $_POST['endinscriptiondate'])) {
+        if (preg_match($regexTournament['endinscriptiondate'], $_POST['endinscriptiondate'])) {
             $tournament->endInscriptionDate = ($_POST['endinscriptiondate']);
         } else {
             $formErrors['endinscriptiondate'] = TOURNAMENTS_ENDINSCRIPTIONDATE_INVALID;

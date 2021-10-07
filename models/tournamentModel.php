@@ -29,7 +29,7 @@ class tournaments extends database
 
     public function getTournaments()
     {
-        $query = 'SELECT creationdate, tournamentdate, startinscriptiondate,endinscriptiondate
+        $query = 'SELECT DATE_FORMAT(creationdate,"%d/%m/%Y ") AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate, DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate,DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
         FROM f39r6_tournaments';
         $queryExecute = $this->db->query($query);
         $queryResult = $queryExecute->fetchAll(PDO::FETCH_OBJ);
@@ -38,7 +38,7 @@ class tournaments extends database
 
     public function getTournamentsInformations()
     {
-        $query = 'SELECT id, creationdate, tournamentdate, startinscriptiondate,endinscriptiondate
+        $query = 'SELECT id, DATE_FORMAT(creationdate,"%d/%m/%Y ") AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate, DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate,DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
         FROM f39r6_tournaments 
         WHERE creationdate = :creationdate
         OR tournamentdate = :tournamentdate';
@@ -55,7 +55,7 @@ class tournaments extends database
     {
         // le DATE_FORMAT permet de transformer la date du format mysql en format francais
         // on recuere une deuxieme fois la date au format mysql pour pouvoir manipuler la date (par exemple pour l'ajouter dans input type date)
-        $query = 'SELECT  creationdate, tournamentdate, startinscriptiondate,endinscriptiondate
+        $query = 'SELECT  DATE_FORMAT(creationdate,"%d/%m/%Y" ) AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate, DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate, DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
         FROM  f39r6_teams 
         WHERE id = :id';
         $queryExecute = $this->db->prepare($query);
@@ -67,7 +67,7 @@ class tournaments extends database
 
 public function getTournamentsList()
 {
-    $query = 'SELECT id,creationdate, tournamentdate, startinscriptiondate,endinscriptiondate
+    $query = 'SELECT id, DATE_FORMAT(creationdate,"%d/%m/%Y ") AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate , DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate,DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
     FROM f39r6_teams';
      $queryExecute = $this->db->query($query);
      $queryResult = $queryExecute->fetchAll(PDO::FETCH_OBJ);
