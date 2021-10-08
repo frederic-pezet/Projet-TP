@@ -6,7 +6,7 @@ $users = new users();
 if (!empty($_GET['id'])) {
 $users->id = $_GET['id']; 
 }else {
-    header('location:profilUsers.php');
+    header('location:users.php');
     exit;
 }
 

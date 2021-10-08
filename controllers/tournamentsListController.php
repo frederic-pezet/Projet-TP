@@ -1,9 +1,10 @@
 <?php
-$appointment = new appointment();
+$tournament = new tournaments();
+
+$tournamentList = $tournament->getTournamentsList();
 
 
 if (!empty($_POST['id'])) {
-    $appointment->id = $_POST['id'];
-    $appointmentDelete = $appointment->deleteAppointment();
+    $tournament->id = $_POST['id'];
+    $tournamentDelete = $tournament->deleteTournaments();
 } 
-$appointmentList = $appointment->getListAppointments();

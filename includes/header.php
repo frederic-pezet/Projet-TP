@@ -32,6 +32,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="tournament.php">Création du tournoi</a></li>
+            <li><a class="dropdown-item" href="tournamentList.php">Tous les tournois</a></li>
             </ul>
         </li>
                 <li class="nav-item dropdown">

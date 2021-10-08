@@ -27,14 +27,7 @@ class tournaments extends database
         return $queryExecute->execute();
     }
 
-    public function getTournaments()
-    {
-        $query = 'SELECT DATE_FORMAT(creationdate,"%d/%m/%Y ") AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate, DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate,DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
-        FROM f39r6_tournaments';
-        $queryExecute = $this->db->query($query);
-        $queryResult = $queryExecute->fetchAll(PDO::FETCH_OBJ);
-        return $queryResult;
-    }
+
 
     public function getTournamentsInformations()
     {
@@ -54,9 +47,9 @@ class tournaments extends database
     public function getTournamentsById()
     {
         // le DATE_FORMAT permet de transformer la date du format mysql en format francais
-        // on recuere une deuxieme fois la date au format mysql pour pouvoir manipuler la date (par exemple pour l'ajouter dans input type date)
-        $query = 'SELECT  DATE_FORMAT(creationdate,"%d/%m/%Y" ) AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate, DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate, DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
-        FROM  f39r6_teams 
+        // on recupere une deuxieme fois la date au format mysql pour pouvoir manipuler la date (par exemple pour l'ajouter dans input type date)
+        $query = 'SELECT  creationdate,  tournamentdate,  startinscriptiondate,  endinscriptiondate
+        FROM  f39r6_tournaments
         WHERE id = :id';
         $queryExecute = $this->db->prepare($query);
         $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
@@ -67,18 +60,30 @@ class tournaments extends database
 
 public function getTournamentsList()
 {
-    $query = 'SELECT id, DATE_FORMAT(creationdate,"%d/%m/%Y ") AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate , DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate,DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
-    FROM f39r6_teams';
+    $query = 'SELECT id,  creationDate, tournamentDate , startInscriptionDate,  endInscriptionDate
+    FROM f39r6_tournaments';
      $queryExecute = $this->db->query($query);
      $queryResult = $queryExecute->fetchAll(PDO::FETCH_OBJ);
      return $queryResult;
 
 
 }
+public function checkIfTournamentExistsById()
+ {
+
+     $query = 'SELECT COUNT(creationdate) AS count
+     FROM f39r6_tournaments
+     WHERE id = :id';
+     $queryExecute = $this->db->prepare($query);
+     $queryExecute->bindValue(':id', $this->id, PDO::PARAM_INT);
+     $queryExecute->execute();
+     $queryResult = $queryExecute->fetch(PDO::FETCH_OBJ);
+     return $queryResult->count;
+ }
 
 public function updateTournaments()
 {
-    $query = 'UPDATE f39r6_teams
+    $query = 'UPDATE f39r6_tournaments
     SET creationdate = :creationdate , tournamentdate = :tournamentdate , startinscriptiondate = :startinscriptiondate, endinscriptiondate = :endinscriptiondate
     WHERE id = :id';
     $queryExecute = $this->db->prepare($query);
