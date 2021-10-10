@@ -1,5 +1,7 @@
 <?php
+// formErrors va permettre de detecter si il y'a une erreur //
 $formErrors = [];
+// Regex de validation //
 $regex = [
     'username' =>'/^[a-zA-Z0-9]{2,50}$/',
     'mails' => '/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)+$/',

@@ -3,15 +3,15 @@
 
  if (!empty($_GET['id'])) {
     $tournament->id = $_GET['id'];
-    //On stocke dans une variable le résultat de la méthode "CheckIfPatientExist"
+    //On stocke dans une variable le résultat de la méthode "checkIfTournamentExists"
     $tournamentExists = $tournament->checkIfTournamentExistsById();
-    //Si le retour du count de notre méthode est égal à 0 (donc notre patient n'existe pas car aucun ID), alors on le redirige
+    //Si le retour du count de notre méthode est égal à 0 (donc du tournoi n'existe pas car aucun ID), alors on le redirige
     if ($tournamentExists == 0) {
-        //header('location:usersList.php');
+        //header('location:tournamentList.php');
         exit;
     }
 } else {
-    //header('location:usersList.php');
+    //header('location:tournamentList.php');
     //exit;
 }
 

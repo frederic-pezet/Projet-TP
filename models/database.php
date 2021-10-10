@@ -1,9 +1,11 @@
 <?php
-
+// Création de la database //
 class database
 {
+// Déclaration des attributs //
     protected $db = NULL;
 
+// Création de notre constructeur //
     public function __construct()
     {
         try {

@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['username'])) {
+// Permet à l'utilisateur quand il se connecte d'arriver sur la page d'accueil // 
     header('location: index.php');
     exit;
 }
@@ -17,6 +18,7 @@ if (count($_POST) > 0) {
     if (!empty($_POST['username'])) {
         
         $user->username = $_POST['username'];
+// Va permettre de savoir si l'utilisateur et dans la base de données // 
         if ($user->checkIfUserExists() == 0) {
             $formErrors['username'] = $formErrors['password'] = 'L\'identifiant ou le mot de passe est incorrect';
         }
@@ -26,6 +28,7 @@ if (count($_POST) > 0) {
     if (!empty($_POST['password'])) {
         if (!isset($formErrors['username'])) {
             $hash = $user->getHashByUsername();
+        // Permet de savoir si le mot de passe est bon //
             if (!password_verify($_POST['password'], $hash->password)) {
                 $formErrrors['username'] = $formErrors['password'] = 'L\'identifiant ou le mot de passe est incorrect';
             }
@@ -38,6 +41,7 @@ if (count($_POST) > 0) {
         $user->getUsersInformations();
         $_SESSION['id'] = $user->id;
         $_SESSION['username'] = $user->username;
+        // Permet de savoir le rôle de l'utilisateur quand il va rentrer ses informations //
         $_SESSION['id_roles'] = $user->id_roles;
         header('location: index.php');
         exit;

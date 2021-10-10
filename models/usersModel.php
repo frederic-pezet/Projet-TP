@@ -1,5 +1,6 @@
 <?php
 
+// Création de notre classe users et de la relier à la base de données //
 class users extends database
 {
 
@@ -88,8 +89,7 @@ class users extends database
      */
     public function getUserById()
     {
-        // le DATE_FORMAT permet de transformer la date du format mysql en format francais
-        // on recuere une deuxieme fois la date au format mysql pour pouvoir manipuler la date (par exemple pour l'ajouter dans input type date)
+       
         $query = 'SELECT username, nintendo_network_username , origin_username, psn_username, xbox_live_username, password, mail, id
         FROM  f39r6_users
         WHERE id = :id';
@@ -118,8 +118,8 @@ class users extends database
     }
 
     /**
-     * Permet de modifier les informations de l'utilisateur (sauf le mot de passe)
-     *
+     * Permet de modifier les informations de l'utilisateur grâce à la commande update.
+     * Le choix des modifications se fait par le biais de marqueurs nominatifs.
      * @return bool
      */
     public function updateUser()

@@ -1,7 +1,16 @@
 <?php
-
+// Création de notre classe users et de la relier à la base de données //
 class tournaments extends database
 {
+
+    
+    /**
+     * Etape 1 : Créer les attributs (colonnes de la base de données + db)
+     * visibilité (public, private, protected) $nom_de_l'attribut = valeur par défaut
+     ** public : utilisable dans la classe et appelable de l'extérieur
+     ** private : utilisable uniquement dans la classe
+     ** protected : utilisable dans la classe ET dans ses enfants
+     */
     public $db = NULL;
     public $id = 0;
     public $creationDate = '';
@@ -9,16 +18,23 @@ class tournaments extends database
     public $startInscriptionDate = '';
     public $endInscriptionDate = '';
 
-
+    /**
+     * Fonction qui se déclenche à l'instanciation de l'objet et qui, ici
+     * permet de se connecter à la base de données
+     */
     public function __construct()
     {
         $this->db = parent::__construct();
     }
-
+ 
+    // permet de créer un tournoi et de l'ajouter dans la base de données //
     public function addTournaments()
     {
+        // On stocke la requête pour éviter de tout mettre dans le prépare et gagner en lisibilité
         $query = 'INSERT INTO `f39r6_tournaments`(`creationdate`, `tournamentdate`, `startinscriptiondate`,`endinscriptiondate`) 
         VALUES (:creationdate, :tournamentdate, :startinscriptiondate, :endinscriptiondate)';
+        // On prépare la requête, elle n'est pas exécutée tout de suite car il manque des informations
+        // prepare = bindValue = execute
         $queryExecute = $this->db->prepare($query);
         $queryExecute->bindValue(':creationdate', $this->creationDate, PDO::PARAM_STR);
         $queryExecute->bindValue(':tournamentdate', $this->tournamentDate, PDO::PARAM_STR);
@@ -29,26 +45,11 @@ class tournaments extends database
 
 
 
-    public function getTournamentsInformations()
-    {
-        $query = 'SELECT id, DATE_FORMAT(creationdate,"%d/%m/%Y ") AS creationdate, DATE_FORMAT(tournamentdate,"%d/%m/%Y ") AS tournamentdate, DATE_FORMAT(startinscriptiondate,"%d/%m/%Y ") AS startinscriptiondate,DATE_FORMAT(endinscriptiondate,"%d/%m/%Y ") AS endinscriptiondate
-        FROM f39r6_tournaments 
-        WHERE creationdate = :creationdate
-        OR tournamentdate = :tournamentdate';
-        $queryExecute = $this->db->prepare($query);
-        $queryExecute->bindValue(':creationdate', $this->creationDate, PDO::PARAM_STR);
-        $queryExecute->bindValue(':tournamentdate', $this->tournamentDate, PDO::PARAM_STR);
-        $queryExecute->execute();
-        $queryResult = $queryExecute->fetch(PDO::FETCH_OBJ);
-        $this->id = $queryResult->id;
-        return true;
-    }
 
     public function getTournamentsById()
     {
-        // le DATE_FORMAT permet de transformer la date du format mysql en format francais
-        // on recupere une deuxieme fois la date au format mysql pour pouvoir manipuler la date (par exemple pour l'ajouter dans input type date)
-        $query = 'SELECT  creationdate,  tournamentdate,  startinscriptiondate,  endinscriptiondate
+        
+        $query = 'SELECT id, creationdate,  tournamentdate,  startinscriptiondate,  endinscriptiondate
         FROM  f39r6_tournaments
         WHERE id = :id';
         $queryExecute = $this->db->prepare($query);
@@ -58,6 +59,7 @@ class tournaments extends database
         return $queryResult;
     }
 
+    // Permet de récupérer toutes les informations des tournois
 public function getTournamentsList()
 {
     $query = 'SELECT id,  creationDate, tournamentDate , startInscriptionDate,  endInscriptionDate
@@ -68,6 +70,7 @@ public function getTournamentsList()
 
 
 }
+// Permet de savoir si le tournoi existe
 public function checkIfTournamentExistsById()
  {
 
@@ -81,13 +84,14 @@ public function checkIfTournamentExistsById()
      return $queryResult->count;
  }
 
+ // Permet de modifier le tournoi
 public function updateTournaments()
 {
     $query = 'UPDATE f39r6_tournaments
     SET creationdate = :creationdate , tournamentdate = :tournamentdate , startinscriptiondate = :startinscriptiondate, endinscriptiondate = :endinscriptiondate
     WHERE id = :id';
     $queryExecute = $this->db->prepare($query);
-    $queryExecute->bindValue(':creationdate ', $this->creationDate, PDO::PARAM_STR);
+    $queryExecute->bindValue(':creationdate', $this->creationDate, PDO::PARAM_STR);
     $queryExecute->bindValue(':tournamentdate', $this->tournamentDate, PDO::PARAM_STR);
     $queryExecute->bindValue(':startinscriptiondate', $this->startInscriptionDate, PDO::PARAM_STR);
     $queryExecute->bindValue(':endinscriptiondate', $this->endInscriptionDate, PDO::PARAM_STR);
@@ -95,6 +99,7 @@ public function updateTournaments()
     return $queryExecute->execute();
 }
 
+//Permet de supprimer un tournoi
 public function deleteTournaments()
 {
     $query = 'DELETE FROM  f39r6_tournaments

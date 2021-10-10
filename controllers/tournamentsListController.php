@@ -1,6 +1,7 @@
 <?php
 $tournament = new tournaments();
 
+// Permet d'associer a la requête pour l'affichage //
 $tournamentList = $tournament->getTournamentsList();
 
 

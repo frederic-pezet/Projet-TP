@@ -13,7 +13,7 @@ if (count($_POST) > 0) {
 
 
 
-
+ 
     if (!empty($_POST['username'])) {
         if (preg_match($regex['username'], $_POST['username'])) {
             $user->username = strtolower(htmlspecialchars($_POST['username']));

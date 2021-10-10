@@ -3,9 +3,9 @@
 $user = new users();
 if (!empty($_GET['id'])) {
     $user->id = $_GET['id'];
-    //On stocke dans une variable le résultat de la méthode "CheckIfPatientExist"
+    //On stocke dans une variable le résultat de la méthode "CheckIfUserExistsById"
     $userExists = $user->checkIfUserExistsById();
-    //Si le retour du count de notre méthode est égal à 0 (donc notre patient n'existe pas car aucun ID), alors on le redirige
+    //Si le retour du count de notre méthode est égal à 0 (donc notre user n'existe pas car aucun ID), alors on le redirige
     if ($userExists == 0) {
         //header('location:usersList.php');
         exit;
@@ -21,7 +21,7 @@ $formErrors = [];
 
 
 
-
+// Permet de faire la modification des informations de l'utilisateur // 
 if (isset($_POST['updateInfos'])) {
     
 
@@ -130,5 +130,5 @@ if (isset($_POST['updateMail'])) {
 }
 
 
-
+// Permet d'afficher les information existantes afin de les modifier //
 $userDetail = $user->getUserById();
