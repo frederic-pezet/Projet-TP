@@ -15,8 +15,9 @@ include 'includes/header.php';
   <p class="col-12 col-md-12 text-center">Le site FOOTLIF' va vous permettre de vous amusez entres amis ou faire des tournois avec des personnes que vous connaissez pas le tout en vous amusant </p>
   <div class="row">
   <div class=" order-1 order-md-1 col-12 col-md-6 text-center">
-                    <img src="assets/img/téléchargement.jpe" id="logo" alt="moi">
-                </div>
+        <img src="assets/img/téléchargement.jpe" id="logo" alt="logo">
+</div>
+                
 
                 
                 <div class=" order-2 order-md-2 text1 col-12 col-md-6 text-center my-4">
@@ -28,6 +29,7 @@ include 'includes/header.php';
 
                     </p>
                 </div>
+
 </div>
 </div>
 </div>
