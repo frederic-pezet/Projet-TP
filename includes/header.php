@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <header>
-    <img src="assets/img/foot.jpg " alt="photofoot">
+ <img src="assets/img/foot.jpg " alt="photofoot"> 
 </header>
 <nav class="navbar sticky-top  navbar-expand-lg navbar-light">
     <div class="container-fluid">

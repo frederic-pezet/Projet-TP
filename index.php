@@ -21,10 +21,9 @@ include 'includes/header.php';
 
                 
                 <div class=" order-2 order-md-2 text1 col-12 col-md-6 text-center my-4">
-                    <p>Développeur Web junior, je recherche une alternance(CDA)dans une entreprise ou une agence
-                        web.<br>
-                        Cette expérience me permettra d'acquérir de l'autonomie et de la confiance en moi.<br>
-                        La formation de 6 mois que j'ai suivi m'a permis d'étoffer de nouvelles compétences.<br>
+                    <p>Le site va vous permettre de vous inscrire gratuitement et vous connecter rapidement.<br>
+
+ Ensuite vous pourrez créer vos tournois et ainsi votre équipe que vous souhaitez.
 
 
                     </p>
